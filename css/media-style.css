@@ -1,0 +1,67 @@
+@media (max-width: 1200px) {
+  .estrutura {
+    grid-template-areas:
+      "header   header   header"
+      "sidenav conteudo conteudo"
+      "sidenav   ads       ads"
+      "footer  footer   footer";
+  }
+}
+
+@media (max-width: 800px) {
+  .estrutura {
+    grid-template-columns: minmax(460px, 1fr);
+    grid-template-areas:
+      "header"
+      "sidenav"
+      "conteudo"
+      "ads"
+      "footer";
+  }
+
+  .sidenav {
+    overflow-x: scroll;
+    position: relative;
+  }
+
+  .sidenav::after {
+    content: '→';
+    font-size: 2em;
+    position: absolute;
+    top: -5px;
+    right: 30px;
+    color: rgb(0 0 0  / 0.4);
+    animation: seta-sidenav .4s ease-in infinite alternate;
+  }
+
+  .sidenav ul{
+    display: flex;
+  }
+
+  .sidenav li {
+    min-width: 200px;
+  }
+
+  .sidenav li a{
+    margin: 0;
+  }
+
+  .header {
+    grid-template-columns: auto;
+  }
+}
+
+@media (max-width: 640px) {
+  .content {
+    grid-template-columns: 1fr;
+  }
+}
+
+@keyframes seta-sidenav {
+  from {
+    right: 30px;
+  } 
+  to {
+    right: 20px;
+  }
+}
